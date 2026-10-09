@@ -38,3 +38,10 @@ index.html, style.css, app.js, manifest.webmanifest, sw.js, original PNG icons. 
 ## Deployment layout
 
 The GitHub Pages version places the two PNG icons at the repository root. Icon references in HTML, manifest and worker were changed to match. Runtime code is the tested v1.0.1 prototype. This folder layout avoids a build step. Data remains browser-local, not in the public repository.
+
+## Site shortcut icons (v1.1.0)
+Website shortcuts now discover site branding automatically and use the same icon on Desktop, Taskbar and Launcher. Where the site allows CORS, the app reads its declared favicon/touch-icon links. It also checks common touch-icon, SVG and favicon paths. Actual decoded pixel sizes decide which retrievable icon wins; advertised sizes alone are not trusted. A generic arrow is used if no candidate loads.
+
+Only the target site and its declared icon hosts are contacted, without a referrer. HTML/cache fetches omit credentials; image probes follow the browser's third-party cookie rules. No third-party favicon lookup/proxy service is used. The first lookup needs internet. Successful icons are stored in a separate Cache Storage cache for offline rendering after the service worker controls the app. Websites themselves still need internet. Browser data clearing/eviction can remove cached icons. Existing shortcuts without icons are upgraded when opened online. Editing a shortcut's URL refreshes its branding. Properties can be saved again to retry discovery.
+
+Limit: browsers cannot read pages that disallow CORS. For those sites, discovery is limited to conventional icon paths, so a larger icon at a hidden custom URL may be unreachable. This is the highest-quality retrievable candidate, not a guarantee of every site's absolute best icon. Cross-device JSON backups retain icon URLs, not cached image bytes.
