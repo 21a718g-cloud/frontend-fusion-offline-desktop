@@ -72,3 +72,9 @@ Review the desktop and phone prototype and choose an HTTPS hosting destination/a
 
 ## v1.1.0 favicon feature, 9 October 2026
 Actual automated Chrome tests through the Add Website dialog: GitHub (120px touch icon), Wikipedia (160px touch icon), Google (32px favicon). Desktop and Taskbar display matching images; six image elements remain loaded after offline reload. Desktop and 390px screenshots inspected. At 390px document width equals viewport width, with three branded taskbar pins visible. Controlled fixtures confirm 512px declared icon wins over 192px; no-icon case retains default arrow. Zero page JavaScript errors. Existing synthetic/local prototype limitations above remain; physical phones and iOS not tested.
+
+## v1.2.0 Profile hub validation (9 October 2026)
+
+Automated Chromium (Playwright) checks against a local server, 1280x800 and 390x844: first run shows Welcome once; no Welcome after reload, after reload with it left open, or after offline reload; existing v2 workspace keeps notes, files, shortcuts and gets no Welcome; profile edit (name, role, workspace, shape, avatar upload to 256 px) persists across reload and offline reload; workspace backup includes profile and avatar; v2 backup import keeps the current profile; malformed or hostile profile files are rejected or sanitised; profile export/import round trip; keyboard open (Enter), Escape close and focus return; 390px has no horizontal overflow and the card fits; no unexpected page errors. Screenshots inspected.
+
+Not tested: physical phones/iOS, screen readers, other browsers, native OS install, multi-tab edits (last tab to save wins). Original strict-checklist limits remain. Not a production certification.
