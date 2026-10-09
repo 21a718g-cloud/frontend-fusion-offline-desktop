@@ -69,3 +69,6 @@ See evidence/test-results.json and evidence/extra-results.json. Local Chrome was
 ## Exact next action
 
 Review the desktop and phone prototype and choose an HTTPS hosting destination/audience before any deployment.
+
+## v1.1.0 favicon feature, 9 October 2026
+Actual automated Chrome tests through the Add Website dialog: GitHub (120px touch icon), Wikipedia (160px touch icon), Google (32px favicon). Desktop and Taskbar display matching images; six image elements remain loaded after offline reload. Desktop and 390px screenshots inspected. At 390px document width equals viewport width, with three branded taskbar pins visible. Controlled fixtures confirm 512px declared icon wins over 192px; no-icon case retains default arrow. Zero page JavaScript errors. Existing synthetic/local prototype limitations above remain; physical phones and iOS not tested.
