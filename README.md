@@ -19,7 +19,7 @@ Opening `index.html` as `file://` is not an offline-installable PWA. For phone a
 - Search: Ctrl/Cmd+K, or `/` outside text fields. Arrow keys choose, Enter runs, Escape closes. Only executed results create recent-search history, at most 12 queries.
 - Files: select then use visible actions, or right-click for actions. Double-click opens on desktop; tap opens on mobile. Binary imports download on open.
 - Notes: create explicitly; title/content autosave after a short delay.
-- Backups: Settings > Export workspace. JSON includes text files, notes, metadata, shortcuts, settings, history, pins and windows. It **does not include binary file or wallpaper bytes**. Download important binary files separately.
+- Backups: Settings > Export workspace. JSON includes text files, notes, metadata, shortcuts, settings, history, pins, windows and your profile (including the avatar). It **does not include binary file or wallpaper bytes**. Download important binary files separately.
 
 ## Storage and security boundaries
 
@@ -45,3 +45,11 @@ Website shortcuts now discover site branding automatically and use the same icon
 Only the target site and its declared icon hosts are contacted, without a referrer. HTML/cache fetches omit credentials; image probes follow the browser's third-party cookie rules. No third-party favicon lookup/proxy service is used. The first lookup needs internet. Successful icons are stored in a separate Cache Storage cache for offline rendering after the service worker controls the app. Websites themselves still need internet. Browser data clearing/eviction can remove cached icons. Existing shortcuts without icons are upgraded when opened online. Editing a shortcut's URL refreshes its branding. Properties can be saved again to retry discovery.
 
 Limit: browsers cannot read pages that disallow CORS. For those sites, discovery is limited to conventional icon paths, so a larger icon at a hidden custom URL may be unreachable. This is the highest-quality retrievable candidate, not a guarantee of every site's absolute best icon. Cross-device JSON backups retain icon URLs, not cached image bytes.
+
+## Profile hub (v1.2.0)
+
+A profile button sits at the top right. It opens a card with your name, role, workspace name, avatar, the last note or file you opened, a theme switch and shortcuts to edit, export or import the profile. Avatars (PNG, JPEG or WebP) are cropped square, scaled to 256 px and stored in this browser as a small data URL; shape is circle, rounded or square. Profile and avatar are included in workspace backups; "Export profile" makes a separate small JSON file. Imports are size-capped, validated and sanitised, and an old backup without a profile keeps your current one.
+
+The Welcome window opens only on a brand-new workspace (and after Reset). It is never restored on load; reopen it from the profile card, Settings or the Welcome icon. Existing workspaces are migrated automatically (schemaVersion 3) and keep notes, files and shortcuts.
+
+A Content-Security-Policy meta tag restricts scripts to the app itself. This is not a security audit or formal accessibility certification.
