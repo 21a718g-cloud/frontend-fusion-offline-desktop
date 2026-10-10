@@ -19,3 +19,7 @@
 #profile-card label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted)}
 .avatar-edit{display:flex;justify-content:center;margin-bottom:8px}
 @media(max-width:700px){.profile-name{display:none}.profile-btn{padding:4px;max-width:none;min-width:44px;min-height:44px;justify-content:center}#profile-card{top:60px;right:8px}.top{gap:6px}}
+
+/* Online Linux launcher follows the existing workspace theme. */
+.linux-badge{display:inline-block;padding:5px 10px;border:1px solid var(--line);border-radius:99px;font-size:11px;letter-spacing:.08em;color:var(--muted)}
+.linux-choices{display:grid;gap:8px;margin:18px 0}.linux-choices button{text-align:left;min-height:48px;white-space:normal}.linux-choices p{margin:0 0 10px;color:var(--muted);font-size:13px}.linux-status{font-size:13px;color:var(--muted)}
