@@ -78,3 +78,13 @@ Actual automated Chrome tests through the Add Website dialog: GitHub (120px touc
 Automated Chromium (Playwright) checks against a local server, 1280x800 and 390x844: first run shows Welcome once; no Welcome after reload, after reload with it left open, or after offline reload; existing v2 workspace keeps notes, files, shortcuts and gets no Welcome; profile edit (name, role, workspace, shape, avatar upload to 256 px) persists across reload and offline reload; workspace backup includes profile and avatar; v2 backup import keeps the current profile; malformed or hostile profile files are rejected or sanitised; profile export/import round trip; keyboard open (Enter), Escape close and focus return; 390px has no horizontal overflow and the card fits; no unexpected page errors. Screenshots inspected.
 
 Not tested: physical phones/iOS, screen readers, other browsers, native OS install, multi-tab edits (last tab to save wins). Original strict-checklist limits remain. Not a production certification.
+
+## Linux launcher v1.3.0 (10 October 2026)
+
+- Chromium checks at 1280x844, 390x844 and 320x844: Desktop entry opens Linux; terminal and graphical buttons open the exact intended hosted URLs in new tabs; no JavaScript exceptions or page-width overflow.
+- Offline after shell installation/reload: shell opens, Linux controls disabled with an offline explanation; reconnect enables controls. Cache contains fusion-shell-v1.3.0, no WebVM assets.
+- Launcher search, global search and running Taskbar include Linux. Existing note title/content survived reload. Profile/schema/storage formats unchanged.
+- Inspected rendered screenshots at all three widths, including scrolled lower content. Controls and caveats remain readable in the existing theme; content scrolls vertically.
+- Hosted WebVM top-level terminal booted and uname -s returned Linux. Graphical demo link opens; full i3 interaction and actual tablet/ROM performance are not certified.
+- Direct iframe experiment: WebVM welcome screen loads, but boot fails with DataCloneError / SharedArrayBuffer transfer requires self.crossOriginIsolated on a normal parent page. Separate-tab route used; CSP unchanged.
+- No engine, disk image, payment, external account, Tailscale setup or API key is included. Linux is online-only and its local data is separate from Fusion backups.
