@@ -53,3 +53,11 @@ A profile button sits at the top right. It opens a card with your name, role, wo
 The Welcome window opens only on a brand-new workspace (and after Reset). It is never restored on load; reopen it from the profile card, Settings or the Welcome icon. Existing workspaces are migrated automatically (schemaVersion 3) and keep notes, files and shortcuts.
 
 A Content-Security-Policy meta tag restricts scripts to the app itself. This is not a security audit or formal accessibility certification.
+
+## Linux launcher (v1.3.0)
+
+Linux is now a built-in app on Desktop, Launcher, global search and Taskbar. Open it to launch hosted WebVM: Debian terminal or Alpine/Xorg/i3 graphical desktop, both in a separate tab. Internet is required; this is not Ubuntu, a cloud server or Mali GPU passthrough. Fusion does not cache the WebVM engine or disk, and its workspace backups do not include Linux data. Existing files, notes and profile data are unchanged.
+
+WebVM framing on a normal non-isolated page was tested and failed with a SharedArrayBuffer/crossOriginIsolated error. Keeping a separate tab avoids weakening the existing CSP or changing browser isolation across the workspace. The Content-Security-Policy is unchanged (frame-src none); no third-party script was added. The shell cache version is v1.3.0.
+
+WebVM frontend is Apache-2.0, but CheerpX has separate terms. The hosted engine is free for individual exploration; downloading it for redistribution/self-hosting requires a commercial licence. This app only links to the original service. See https://github.com/leaningtech/webvm#license .
